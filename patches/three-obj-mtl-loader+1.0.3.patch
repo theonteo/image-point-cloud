@@ -1,0 +1,13 @@
+diff --git a/node_modules/three-obj-mtl-loader/index.js b/node_modules/three-obj-mtl-loader/index.js
+index ee7a7a2..1501091 100644
+--- a/node_modules/three-obj-mtl-loader/index.js
++++ b/node_modules/three-obj-mtl-loader/index.js
+@@ -543,7 +543,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
+ 		var loader = THREE.Loader.Handlers.get( url );
+ 		var manager = ( this.manager !== undefined ) ? this.manager : THREE.DefaultLoadingManager;
+ 
+-		if ( loader === null ) {
++		if (!loader  ) {
+ 
+ 			loader = new THREE.TextureLoader( manager );
+ 

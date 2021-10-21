@@ -1,0 +1,62 @@
+.SideBar {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    bottom: 40vh;
+}
+
+.SideBarIntro {
+    margin-left: 10%;
+    top: 10%;
+    position: absolute;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.contentContainer {
+    background: #111111be;
+    backdrop-filter: grayscale(0.99) ;
+}
+
+.RenderIntro {
+    display: flex;
+    height: 325vh;
+}
+
+.RenderWindow1 {
+    position: fixed;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0);
+}
+
+.RenderWindow2 {
+
+    display: flex;
+    position: relative;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0);
+}
+
+@media screen and (max-width: 960px) {
+   
+    .SideBar {
+        width: 100%;
+        position: absolute;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        bottom: 40vh;
+    }
+    .SideBarIntro {
+        margin-left: 0%;
+        width: 100%;
+        display: flex;
+        overflow-y: hidden;
+        padding-left: 10%;
+        padding-right: 10%;
+        top: 10%;
+    }
+}

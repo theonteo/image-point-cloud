@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-weight: 100;
+  font-size: 15px;
+}
+
+.home,
+.services,
+.products,
+.sign-up {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.services {
+  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(145, 40, 40);
+  font-size: 100px;
+}
+
+.products {
+ 
+  background-position: center;
+  background-size: fill;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+.main {
+background: black;
+}
+.sign-up {
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}

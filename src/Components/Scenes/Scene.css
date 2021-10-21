@@ -1,0 +1,10 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.render-window {}
+
+@media screen and (min-width: 960px) {
+    .render-window-project {}
+}
