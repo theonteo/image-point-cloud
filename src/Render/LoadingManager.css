@@ -30,7 +30,7 @@
     transition:all 0.4s ease-out;
     content: '';
     display: block;
-    background: rgb(0, 255, 128);
+    background: rgb(255, 255, 255);
     width: 9999;
     height: 100%;
     border-radius: 9px;

@@ -87,7 +87,7 @@ class LoadingManager extends Component
                     <div className='loading-background' style={{ background: !this.state.hideScreen ? "rgba(21, 21, 21,0)" : "rgb(21, 21, 21) " }}>
                         <div className='progress' style={{ zIndex: this.state.hideScreen ? 999 : -999, background: !this.state.hideScreen ? "rgba(51, 51, 51,0)" : "rgb(51, 51, 51) " }} >
                             <div className='progress2'
-                                style={{ zIndex: this.state.hideScreen ? 999 : -999, width: this.state.progressWidth, background: !this.state.hideScreen ? "rgba(0, 255, 234,0) " : "rgb(0, 255, 234) " }} >
+                                style={{ zIndex: this.state.hideScreen ? 999 : -999, width: this.state.progressWidth, background: !this.state.hideScreen ? "rgba(255, 255,255,0) " : "rgb(255, 255, 255) " }} >
                             </div>
                         </div>
                     </div>
