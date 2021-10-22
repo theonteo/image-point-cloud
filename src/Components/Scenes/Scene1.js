@@ -14,7 +14,7 @@ import * as THREE from "three";
 //renderer related
 import CloudModel from "../../Render/CloudModel";
 import Scene from "./Scene";
-import img from "../../Images/img-profile.jpg"
+import img from "../../Images/img-point.png"
 
 import { Vector3 } from "three";
 
@@ -30,15 +30,15 @@ class Scene1 extends Scene
   {
     super(_options);
 
-    //add main room model
+    //add main model
     this.cloud = new CloudModel({
 
       //cloud setting
-      pixelStep: 10,
-      pointScale: 7,
-      cloudScale: 0.85,
+      pixelStep: 4,
+      pointScale: 12,
+      cloudScale: 1.65,
       deleteThreshold: 25,
-
+      pointBrightness : 5,
       texture: img,
       scene: this.scene
     });
@@ -53,8 +53,6 @@ class Scene1 extends Scene
   /******************************************************************************/
   Update()
   {
-
-
     this.newCamera.setPosition(new THREE.Vector3(0, 0, 1000));
 
     if (this.cloud.loaded)
@@ -62,7 +60,6 @@ class Scene1 extends Scene
 
     this.newCamera.threeCamera.lookAt(new Vector3(0, 0, 0));
   }
-
 }
 
 export default Scene1

@@ -34,6 +34,7 @@ export default class CloudModel
         this.pointScale = _options.pointScale;
         this.cloudScale = _options.cloudScale;
         this.deleteThreshold = _options.deleteThreshold;
+        this.pointBrightness = _options.pointBrightness;
 
         this.time = 0.0;
         this.loaded = false;
@@ -101,7 +102,9 @@ export default class CloudModel
         var mousex = this.lateMouse.x - window.innerWidth / 2;
         var mousey = window.innerHeight / 2 - this.lateMouse.y;
 
+        //is the window size in mobile?
         this.mobile = window.innerWidth < 960;
+
         for (var i = 0; i < this.pointCount; ++i)
         {
             this.dirTemp.set(mousex - this.positions[i * 3], mousey - this.positions[i * 3 + 1]);
@@ -109,16 +112,15 @@ export default class CloudModel
 
             //x position
             this.positionsRunTime[i * 3] =
-                MathUtils.lerp(this.positionsRunTime[i * 3] + Math.cos(this.time + this.positions[i * 3 + 1] * 0.01) * 0.15 * 0.1,
+                MathUtils.lerp(this.positionsRunTime[i * 3] + Math.cos(this.time + this.positions[i * 3 + 1] * 0.05) * 0.015,
                     this.positions[i * 3], 1 / this.dt * healSpeed) + (dirLength < distPoint ? (distPoint - dirLength) * this.dirTemp.normalize().x : 0) * 0.1;
 
             //y position
-            this.positionsRunTime[i * 3 + 1] = MathUtils.lerp(this.positionsRunTime[i * 3 + 1] + Math.sin(this.time + this.positions[i * 3] * 0.005) * 1.5 * 0.1,
+            this.positionsRunTime[i * 3 + 1] = MathUtils.lerp(this.positionsRunTime[i * 3 + 1] + Math.sin(this.time + this.positions[i * 3] * 0.005) * 0.5 ,
                 this.positions[i * 3 + 1], 1 / this.dt * healSpeed) + (dirLength < distPoint ? (distPoint - dirLength) * this.dirTemp.normalize().y : 0) * 0.1;
 
             //size
-            this.sizesRunTime[i] = this.mobile ? 0.01 :
-                (dirLength < distPoint ? dirLength / distPoint * this.sizes[i] : this.sizes[i]);
+            this.sizesRunTime[i] = dirLength < distPoint ? dirLength / distPoint * this.sizes[i] : this.sizes[i];
         }
         this.geometry.attributes.position.array = this.positionsRunTime;
         this.geometry.attributes.size.array = this.sizesRunTime;
@@ -208,9 +210,9 @@ export default class CloudModel
                     this.positionsRunTime[i * 3 + 1] = points[i].y;
                     this.positionsRunTime[i * 3 + 2] = points[i].z;
 
-                    this.colors[i * 3] = cols[i].x;
-                    this.colors[i * 3 + 1] = cols[i].y;
-                    this.colors[i * 3 + 2] = cols[i].z;
+                    this.colors[i * 3] = cols[i].x * this.pointBrightness;
+                    this.colors[i * 3 + 1] = cols[i].y * this.pointBrightness;
+                    this.colors[i * 3 + 2] = cols[i].z * this.pointBrightness;
                     this.sizesRunTime[i] = this.sizes[i] = (cols[i].x + cols[i].y + cols[i].z) * this.pointScale;
 
                 }
